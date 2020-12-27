@@ -11,6 +11,7 @@ public class Main extends JFrame{
 
 	public static void main(String[] args) {
 		Main panel = new Main();
+		panel.setTitle("Test Title");
 		panel.setBounds(100, 100, 800, 600); 
 		panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setResizable(false);
