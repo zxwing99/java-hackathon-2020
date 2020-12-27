@@ -15,7 +15,7 @@ public class Main extends JFrame{
 		panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setResizable(false);
 		c = panel.getContentPane(); // *****
-		c.setBackground(Color.BLACK);
+		c.setBackground(Color.CYAN);
 		panel.setBackground(Color.BLACK);
 		panel.setVisible(true); // ***
 		c.setVisible(true);
