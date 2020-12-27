@@ -22,23 +22,9 @@ public class Main extends JFrame{
 		panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setResizable(false);
 		c = panel.getContentPane(); // *****
-		// c.setBackground(Color.BLACK);
+		c.setBackground(Color.BLACK);
 		panel.setBackground(Color.BLACK);
 		panel.setVisible(true); // ***
 		c.setVisible(true);
-		wallArray.add(new walls(100, 100, 200, 200));
-		wallArray.add(new walls(310, 100, 200, 200));
-		c.paint(null);
-	}
-
-	public void paint(Graphics g) {
-		super.paint(g);
-		drawWalls(g);
-	}
-
-	public void drawWalls(Graphics g) {
-		for (walls wall : wallArray) {
-			wall.paint(g);
-		}
 	}
 }
