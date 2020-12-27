@@ -2,16 +2,13 @@ package pieces;
 
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Rectangle;
 
-public class walls {
-	private int x, y, width, height;
+public class walls extends Rectangle {
 	private Color color;
 
 	public walls(int x, int y, int width, int height) {
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
+		super(x, y, width, height);
 		this.color = Color.GRAY;
 	}
 
@@ -31,7 +28,7 @@ public class walls {
 		this.y += move;
 	}
 
-	void paint(Graphics g) {
+	public void paint(Graphics g) {
 		g.fillRect(x, y, width, height);
 	}
 }
