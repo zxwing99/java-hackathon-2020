@@ -25,10 +25,10 @@ public class Map implements ActionListener{
 	
 	public void createWall(int x) {
 		walls[] newWall = new walls[10];
-		if (level % 6 == 0 && wallCount <= 7) {
+		if (level % 6 == 0 && wallCount < 7) {
 			wallCount++;
 		}
-		if (level % 10 == 0 && enimies <= 3) {
+		if (level % 10 == 0 && enimies < 3) {
 			enimies ++;
 		}
 		int wallc = 0;
