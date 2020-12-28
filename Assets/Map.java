@@ -15,9 +15,10 @@ public class Map implements ActionListener{
 	
 	public Map(int wallSize) {
 		this.wallSize = wallSize;
-		wallCount = 1;
+		wallCount = 10;
 		level = 0;
 		enimies = 0;
+		walls = new LinkedList<walls[]>();
 		for (int i = 0; i < 5; i++) {
 			createWall(20 * 2 * i);
 		}
@@ -29,7 +30,7 @@ public class Map implements ActionListener{
 			wallCount++;
 		}
 		if (level % 10 == 0 && enimies < 3) {
-			enimies ++;
+			//enimies ++;
 		}
 		int wallc = 0;
 		int enimiec = 0;
@@ -51,7 +52,7 @@ public class Map implements ActionListener{
 		level++;
 	}
 	
-	public void draw(Graphics dp) {
+	public void draw(DisplayPanel dp) {
 		for(walls[] bigWall : this.walls) {
 			for (walls wall : bigWall) {
 				wall.paint(dp);

@@ -3,8 +3,11 @@ package pieces;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 
-public class walls extends Rectangle {
+import Assets.DisplayPanel;
+
+public class walls extends Rectangle2D.Double {
 	private Color color;
 
 	public walls(int x, int y, int width, int height) {
@@ -28,8 +31,12 @@ public class walls extends Rectangle {
 		this.y += move;
 	}
 
-	public void paint(Graphics g) {
-		g.setColor(color);
-		g.fillRect(x, y, width, height);
+	public void paint(DisplayPanel g) {
+		g.pushMatrix();
+		g.pushStyle();
+		g.fill(color.getRed(),color.getGreen(), color.getBlue());
+		g.rect((int)x, (int)y, (int)(width), (int)(height));
+		g.popMatrix();
+		g.popStyle();
 	}
 }

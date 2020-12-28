@@ -16,9 +16,12 @@ public class DisplayPanel extends PApplet {
 	public DisplayPanel() {
 		map = new Map(super.height / 10);
 		timer = new Timer(50, map);
+		runSketch();
 	}
 
 	public void draw() {
+		super.background(255);
+		map.draw(this);
 		
 	}
 
