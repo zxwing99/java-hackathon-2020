@@ -13,7 +13,6 @@ import pieces.walls;
 
 public class Main extends JFrame{
 	static Container c;
-	static ArrayList<walls> wallArray = new ArrayList<walls>();
 
 	public static void main(String[] args) {
 		Main panel = new Main();

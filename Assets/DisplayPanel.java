@@ -14,8 +14,12 @@ public class DisplayPanel extends PApplet {
 	private Timer timer;
 
 	public DisplayPanel() {
-		map = new Map();
+		map = new Map(super.height / 10);
 		timer = new Timer(50, map);
+	}
+
+	public void draw() {
+		
 	}
 
 }
