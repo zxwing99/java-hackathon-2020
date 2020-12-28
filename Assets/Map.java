@@ -15,11 +15,11 @@ public class Map implements ActionListener{
 	
 	public Map(int wallSize) {
 		this.wallSize = wallSize;
-		wallCount = 10;
-		level = 0;
+		wallCount = 1;
+		level = 1;
 		enimies = 0;
 		walls = new LinkedList<walls[]>();
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 12; i++) {
 			createWall(20 * 2 * i);
 		}
 	}
@@ -30,7 +30,7 @@ public class Map implements ActionListener{
 			wallCount++;
 		}
 		if (level % 10 == 0 && enimies < 3) {
-			//enimies ++;
+			enimies ++;
 		}
 		int wallc = 0;
 		int enimiec = 0;
@@ -55,7 +55,8 @@ public class Map implements ActionListener{
 	public void draw(DisplayPanel dp) {
 		for(walls[] bigWall : this.walls) {
 			for (walls wall : bigWall) {
-				wall.paint(dp);
+				if (wall != null)
+					wall.paint(dp);
 			}
 		}
 	}
@@ -64,6 +65,24 @@ public class Map implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		for(walls[] bigWall : this.walls) {
+			for (walls wall : bigWall) {
+				if (wall != null) {
+					wall.updateX(-3);
+				}
+			}
+		}
+
+		for (int i = 0; i < 10; i++) {
+			if (this.walls.getFirst()[i] != null) {
+				if (this.walls.getFirst()[i].getX() < 0) {
+					this.walls.removeFirst();
+					createWall(500);
+				}
+				break;
+			}
+		}
+
 		
 	}
 
