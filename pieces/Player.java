@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import Assets.Map;
+
 public class Player extends Rectangle{
 	private int health;
 	private Color color;
@@ -29,5 +31,19 @@ public class Player extends Rectangle{
 
 	public void takeDamage() {
 		health--;
+	}
+
+	public boolean isDead() {
+		if (health <= 0) return true;
+		return false;
+	}
+
+	public void checkCollision(walls[][] wallsAndEnemies) {
+		for (walls[] arr : wallsAndEnemies) {
+			for (walls entity : arr) {
+				if (entity.intersects(this))
+					this.health--;
+			}
+		}
 	}
 }
