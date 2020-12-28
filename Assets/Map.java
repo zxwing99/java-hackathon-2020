@@ -19,7 +19,7 @@ public class Map implements ActionListener{
 		level = 0;
 		enimies = 0;
 		for (int i = 0; i < 5; i++) {
-			createWall(20*i);
+			createWall(20 * 2 * i);
 		}
 	}
 	
