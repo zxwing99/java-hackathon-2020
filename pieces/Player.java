@@ -38,12 +38,4 @@ public class Player extends Rectangle{
 		return false;
 	}
 
-	public void checkCollision(walls[][] wallsAndEnemies) {
-		for (walls[] arr : wallsAndEnemies) {
-			for (walls entity : arr) {
-				if (entity.intersects(this))
-					this.health--;
-			}
-		}
-	}
 }
