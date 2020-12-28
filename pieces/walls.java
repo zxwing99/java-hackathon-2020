@@ -29,6 +29,7 @@ public class walls extends Rectangle {
 	}
 
 	public void paint(Graphics g) {
+		g.setColor(color);
 		g.fillRect(x, y, width, height);
 	}
 }

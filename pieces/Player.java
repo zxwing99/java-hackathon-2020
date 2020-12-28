@@ -2,16 +2,16 @@ package pieces;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
-public class Player {
-	private int x, y;
+public class Player extends Rectangle{
 	private int health;
 	private Color color;
 
 	public Player(int x, int y) {
-		this.x = x;
-		this.y = y;
+		super(x, y, 10, 10);
 		this.health = 4;
+		this.color = Color.GREEN;
 	}
 
 	public void moveX(int move) {
@@ -23,7 +23,8 @@ public class Player {
 	}
 
 	public void paint(Graphics g) {
-		
+		g.setColor(color);
+		g.fillRect(x, y, width, height);
 	}
 
 	public void takeDamage() {
