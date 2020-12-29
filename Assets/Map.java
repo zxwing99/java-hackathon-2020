@@ -19,8 +19,8 @@ public class Map implements ActionListener{
 		level = 1;
 		enimies = 0;
 		walls = new LinkedList<walls[]>();
-		for (int i = 0; i < 12; i++) {
-			createWall(20 * 2 * i);
+		for (int i = 0; i < 7; i++) {
+			createWall(40 * 2 * i);
 		}
 	}
 	
@@ -37,14 +37,14 @@ public class Map implements ActionListener{
 		while (wallc < wallCount) {
 			int i = (int) (Math.random()*10);
 			if (newWall[i] == null) {
-				newWall[i] = new pieces.walls(x, wallSize*i, 20, wallSize);
+				newWall[i] = new pieces.walls(x, wallSize*i, 40, wallSize);
 				wallc++;
 			}
 		}
 		while (enimiec < enimies) {
 			int i = (int) (Math.random()*10);
 			if (newWall[i] == null) {
-				newWall[i] = new pieces.enimies(x, wallSize*i, 20, wallSize);
+				newWall[i] = new pieces.enimies(x, wallSize*i, 40, wallSize);
 				enimiec++;
 			}
 		}
@@ -59,6 +59,15 @@ public class Map implements ActionListener{
 					wall.paint(dp);
 			}
 		}
+		for (int i = 0; i < 10; i++) {
+			if (this.walls.getFirst()[i] != null) {
+				if (this.walls.getFirst()[i].getX() < -40) {
+					this.walls.removeFirst();
+					createWall(550);
+				}
+				break;
+			}
+		}
 	}
 
 
@@ -68,22 +77,10 @@ public class Map implements ActionListener{
 		for(walls[] bigWall : this.walls) {
 			for (walls wall : bigWall) {
 				if (wall != null) {
-					wall.updateX(-3);
+					wall.updateX(-1);
 				}
 			}
 		}
-
-		for (int i = 0; i < 10; i++) {
-			if (this.walls.getFirst()[i] != null) {
-				if (this.walls.getFirst()[i].getX() < 0) {
-					this.walls.removeFirst();
-					createWall(500);
-				}
-				break;
-			}
-		}
-
-		
 	}
 
 }

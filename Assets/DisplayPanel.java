@@ -15,13 +15,13 @@ public class DisplayPanel extends PApplet {
 
 	public DisplayPanel() {
 		map = new Map(50);
-		timer = new Timer(50, map);
+		timer = new Timer(15, map);
 		timer.start();
 		runSketch();
 	}
 
 	public void draw() {
-		super.background(100);
+		super.background(255);
 		map.draw(this);
 		
 	}
