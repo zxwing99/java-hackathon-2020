@@ -108,6 +108,14 @@ public class Map implements ActionListener {
 		else {
 			immunity--;
 		}
+
+		// keep player in window bounds
+		if ((int) player.getY() < 0) {
+			player.moveY(0 - (int) player.getY());
+		}
+		if ((int) (player.getY() + player.getHeight()) > 500) {
+			player.moveY(500 - (int) (player.getY() + player.getHeight()));
+		}
 	}
 
 	private void shiftWalls() {
