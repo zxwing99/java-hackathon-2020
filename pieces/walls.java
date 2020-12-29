@@ -26,6 +26,9 @@ public class walls extends Rectangle2D.Double {
 	public void updateX(int move) {
 		this.x += move;
 	}
+	public void setY(int y) {
+		this.y = y;
+	}
 
 	public void updateY(int move) {
 		this.y += move;

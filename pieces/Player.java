@@ -4,38 +4,33 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-import Assets.Map;
-
-public class Player extends Rectangle{
+public class Player extends walls {
 	private int health;
-	private Color color;
+	private int moveSpeed;
 
 	public Player(int x, int y) {
-		super(x, y, 10, 10);
-		this.health = 4;
-		this.color = Color.GREEN;
+		super(x, y, 30, 40);
+		setColor(Color.GREEN);
+		moveSpeed = 20;
+		health = 4;
 	}
-
-	public void moveX(int move) {
-		x += move;
-	}
-
+	
 	public void moveY(int move) {
 		y += move;
 	}
 
-	public void paint(Graphics g) {
-		g.setColor(color);
-		g.fillRect(x, y, width, height);
-	}
-
 	public void takeDamage() {
 		health--;
+		System.out.println(health);
 	}
 
 	public boolean isDead() {
 		if (health <= 0) return true;
 		return false;
+	}
+	
+	public int shoot() {
+		return (int) (y+15);
 	}
 
 }
