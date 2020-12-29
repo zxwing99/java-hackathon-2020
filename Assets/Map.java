@@ -65,12 +65,6 @@ public class Map implements ActionListener {
 	}
 
 	public void draw(DisplayPanel dp) {
-		if (player.isDead()) {
-			// player = null;
-		}
-
-		player.paint(dp);
-
 		for(walls[] bigWall : this.walls) {
 			for (walls wall : bigWall) {
 				if (wall != null)
@@ -92,7 +86,7 @@ public class Map implements ActionListener {
 		for(walls[] bigWall: walls) {
 			if(bigWall[row] != null) {
 				if(bigWall[row] instanceof enimies) {
-					bigWall[row].setY(-5);
+					bigWall[row].setY(-55);
 				}
 				else
 					return (int) bigWall[row].x;
@@ -131,7 +125,7 @@ public class Map implements ActionListener {
 
 		// TODO Auto-generated method stub
 		distance++;
-		if (distance % 100 == 0)
+		if (distance % 150 == 0)
 			createWall(550);
 		shiftWalls();
 		detectCollisions();

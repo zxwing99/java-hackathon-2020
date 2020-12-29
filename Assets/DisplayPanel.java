@@ -34,8 +34,16 @@ public class DisplayPanel extends PApplet implements ActionListener {
 	// runs at every game tick
 	public void draw() {
 		super.background(255);
+		if (player.isDead()) {
+			player.setRect(0, 0, 0, 0);
+			stop();
+			timer.stop();
+			playerTimer.stop();
+		}
 		map.draw(this);
-		super.line(30, lazerY, lazerX, lazerY);
+		player.paint(this);
+		if(!player.isDead())
+			line(30, lazerY, lazerX, lazerY);
 	}
 
 	public void keyPressed() {
