@@ -61,9 +61,8 @@ public class DisplayPanel extends PApplet implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
 		lazerY = player.shoot();
 		lazerX = map.getShot(lazerY);
-		// TODO Auto-generated method stub
-		
 	}
 }

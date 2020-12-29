@@ -30,7 +30,7 @@ public class Player extends walls {
 	}
 	
 	public int shoot() {
-		return (int) (y+15);
+		return (int) (this.y + this.height / 2);
 	}
 
 }
