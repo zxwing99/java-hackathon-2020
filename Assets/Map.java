@@ -14,26 +14,25 @@ public class Map implements ActionListener {
 	private LinkedList<walls[]> walls;
 	private int wallCount, level, enimies;
 	private int wallSize;
-	private Player player;
 	private int distance;
 	private int immunity;
 
-	public Map(int wallSize, Player player) {
+	public Map(int wallSize) {
 		this.wallSize = wallSize;
-		this.player = player;
 		wallCount = 1;
-		level = 1;
+		level = 0;
 		enimies = 0;
 		walls = new LinkedList<walls[]>();
-		for (int i = 2; i < 5; i++) {
-			createWall(100 * i);
-		}
+		createWall(500);
+		// for (int i = 2; i < 5; i++) {
+		// 	createWall(100 * i);
+		// }
 		distance = 0;
 		immunity = 0;
 	}
 	
-	public Player getPlayer() {
-		return player;
+	public int getLevel() {
+		return level;
 	}
 
 	public void createWall(int x) {
@@ -64,7 +63,16 @@ public class Map implements ActionListener {
 		level++;
 	}
 
-	public void draw(DisplayPanel dp) {
+	public void draw(DisplayPanel dp, Player player) {
+		distance++;
+		if (distance == 150) {
+			distance = 0;
+			createWall(550);
+		}
+
+		shiftWalls();
+		detectCollisions(dp, player);
+		
 		for(walls[] bigWall : this.walls) {
 			for (walls wall : bigWall) {
 				if (wall != null)
@@ -95,7 +103,7 @@ public class Map implements ActionListener {
 		return 550;
 	}
 
-	private void detectCollisions() {
+	private void detectCollisions(DisplayPanel dp, Player player) {
 		if (immunity<=0) {
 			walls[] bigWall = walls.getFirst();
 			for (int i = 0; i < 10; i++) {
@@ -114,7 +122,7 @@ public class Map implements ActionListener {
 			player.moveY(0 - (int) player.getY());
 		}
 		if ((int) (player.getY() + player.getHeight()) > 500) {
-			player.moveY(500 - (int) (player.getY() + player.getHeight()));
+			player.moveY(dp.height - (int) (player.getY() + player.getHeight()));
 		}
 	}
 
@@ -129,15 +137,8 @@ public class Map implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {		
-
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		distance++;
-		if (distance % 150 == 0)
-			createWall(550);
-		shiftWalls();
-		detectCollisions();
-		
 	}
 
 }
