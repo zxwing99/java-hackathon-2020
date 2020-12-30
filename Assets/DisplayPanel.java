@@ -40,8 +40,11 @@ public class DisplayPanel extends PApplet implements ActionListener {
 			timer.stop();
 			playerTimer.stop();
 		}
+
 		map.draw(this);
 		player.paint(this);
+		player.drawHealth(this);
+
 		if(!player.isDead())
 			line(30, lazerY, lazerX, lazerY);
 	}
